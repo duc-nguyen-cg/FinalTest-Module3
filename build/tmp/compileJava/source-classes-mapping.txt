@@ -1,0 +1,16 @@
+service/IProductService.java
+ service.IProductService
+dao/IProductDAO.java
+ dao.IProductDAO
+service/ProductService.java
+ service.ProductService
+dao/SQLConnection.java
+ dao.SQLConnection
+dao/ProductDAO.java
+ dao.ProductDAO
+model/Product.java
+ model.Product
+model/Category.java
+ model.Category
+controller/ProductServlet.java
+ controller.ProductServlet
