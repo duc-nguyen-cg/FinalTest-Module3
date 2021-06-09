@@ -25,7 +25,7 @@
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type = "number" name = "quantity" ></td>
+                <td><input type = "number" name = "quantity" min="0" oninput="validity.valid||(value='');"></td>
             </tr>
             <tr>
                 <td>Color</td>
