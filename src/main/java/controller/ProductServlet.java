@@ -39,7 +39,14 @@ public class ProductServlet extends HttpServlet {
 
 
     private void listProducts(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Product> products = this.productService.findAll();
+        List<Product> products;
+        String search = request.getParameter("search");
+        if (search == null || search == ""){
+            products = this.productService.findAll();
+        } else {
+            products = this.productService.searchByName(search);
+        }
+
         request.setAttribute("products", products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         dispatcher.forward(request, response);
@@ -101,6 +108,10 @@ public class ProductServlet extends HttpServlet {
         String category = request.getParameter("category");
         Product newProduct = new Product(name, price, quantity, color, description, category);
         boolean isCreated = this.productService.create(newProduct);
+
+        List<Category> categories = this.productService.findAllCategory();
+        request.setAttribute("categories", categories);
+
         if (isCreated == false){
             request.setAttribute("message", "Error!");
         } else {

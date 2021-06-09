@@ -17,4 +17,6 @@ public interface IProductService {
     boolean delete(int id);
 
     List<Category> findAllCategory();
+
+    List<Product> searchByName(String name);
 }

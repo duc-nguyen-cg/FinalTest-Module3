@@ -36,4 +36,7 @@ public class ProductService implements IProductService {
     }
 
     public List<Category> findAllCategory(){ return this.productDAO.findAllCategory();}
+
+
+    public List<Product> searchByName(String name){ return this.productDAO.searchByName(name);}
 }
